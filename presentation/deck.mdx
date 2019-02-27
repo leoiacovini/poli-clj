@@ -1,0 +1,156 @@
+import { Head, Image, Appear } from 'mdx-deck'
+import { Split } from 'mdx-deck/layouts'
+import { SplitRight } from 'mdx-deck/layouts'
+import { default as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { darcula } from 'react-syntax-highlighter/styles/hljs'
+export { default as theme } from 'mdx-deck/themes'
+import { CodeSurfer } from "mdx-deck-code-surfer"
+
+
+<Head>
+  <title>Nubank Clojure</title>
+</Head>
+
+<!-- # Nubank & Clojure -->
+
+<Image src="https://upload.wikimedia.org/wikipedia/pt/0/08/Logo_nubank.png" size="30%" />
+
+---
+export default Split
+
+# Quem Somos
+
+Leonardo Iacovini
+
+leonardo.iacovini@nubank.com.br
+
+<br />
+
+Rafael Leal
+
+rafael.leal@nubank.com.br
+
+---
+
+# Nubank
+
+---
+
+# Clojure
+
+- LISP
+- Funcional
+- JVM
+- REPL
+
+<img width="20%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Clojure_logo.svg/1200px-Clojure_logo.svg.png" />
+
+---
+
+# LISP
+
+- Parenteses!
+- _Code is Data_
+- Primeira aparição em 1958
+- Common Lisp, Scheme, Clojure (entre outros)!
+
+---
+
+<Image src="https://imgs.xkcd.com/comics/lisp_cycles.png" size="90%"/>
+
+---
+
+## Clojure é um _dialeto LISP_
+
+<Appear>
+<h3> Dialeto é uma variante linguística constituída por características fonológicas, sintáticas, semânticas e morfológicas próprias. </h3>
+</Appear>
+
+---
+
+<Image src="https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535" size="80%" />
+
+---
+
+Clojure segue a mesma estrutura gramatical e sintática de um LISP, porém possui suas caraterísticas próprias de execução e padrões
+
+---
+
+# Exemplo (Fatorial)
+
+<div style={{textAlign: 'left'}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/fatorial.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+# Programação Funcional
+
+_Paradigma_ de programação que procura tratar problemas computacionais como a avaliação de funções matemáticas
+
+---
+
+- Imutabilidade
+- Programação declarativa
+- Idempotência
+- Transparência referencial
+- Funções são valores
+
+---
+
+Tem suas origens em cálculo Lambda
+
+---
+
+# Imutabilidade
+
+- _Variáveis_ não tem seu valor alterado
+
+Se `a = 1`, então `a` sempre será `1`
+
+Funções não alteram o valor de suas entradas, elas produzem uma sáida com as alterações feitas.
+
+`f(a) -> b` onde `b != a` (outro _objeto_ - não é a mesma referência)
+
+---
+
+## Vantagens
+
+- Programação concorrente/paralelismos (thread safety)
+- Fica mais fácil entender o que o código está fazendo
+- Facilidade para testar
+
+---
+
+## Performace
+
+Isso não deveria piorar a performace? (Listas por exemplo)
+
+---
+
+# NÃO
+
+Clojure usa estruturas de dados otimizadas para operações imutáveis
+a maioria das operações é feita em O(1).
+
+Se utiliza de tecnicas de re-aproveitamento de memória (já que os dados não mudam)
+
+---
+
+export default Split
+
+<div style={{textAlign: 'left'}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/fatorial.clj")}
+  </SyntaxHighlighter>
+</div>
+
+<div style={{textAlign: 'left'}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/fatorial.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
