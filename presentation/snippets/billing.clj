@@ -1,10 +1,4 @@
-(s/defn all-bills :- [csw-b/preview-schema]
-  [account :- m-acc/DetailedAccount
-   as-of :- LocalDateTime
-   db :- Db
-   http :- h-pro/IHttpClient
-   rollout :- rl-pro/IRollout
-   routes  :- r-pro/IRoute]
+(defn all-bills [account as-of db http rollout routes]
   (let [[latest & historical] (latest+historical-bills account as-of db http)
         open-bill             (open-bill-w-cache account as-of db http)
         future-bills          (->> (future-bills account as-of db http)
