@@ -3,19 +3,35 @@ import { Split } from 'mdx-deck/layouts'
 import { SplitRight } from 'mdx-deck/layouts'
 import { default as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { darcula } from 'react-syntax-highlighter/styles/hljs'
-export { default as theme } from 'mdx-deck/themes'
+export { default as theme } from './theme'
 import { CodeSurfer } from "mdx-deck-code-surfer"
-
 
 <Head>
   <title>Nubank Clojure</title>
 </Head>
 
 <!-- # Nubank & Clojure -->
-
-<Image src="https://upload.wikimedia.org/wikipedia/pt/0/08/Logo_nubank.png" size="30%" />
+<Image src="./img/nulogo.png" size="40%" />
 
 ---
+
+export default Split
+
+# Nubank
+
+- Cartão de Crédito (2014)
+- Rewards (2016)
+- NuConta (2017)
+- Cartão de Débito (2018)
+- Empréstimos (2019)
+
+
+- 6 milhões de clientes
+- Mais de 220 Engenheiros
+- Mais de 200 Microserviços Clojure
+
+---
+
 export default Split
 
 # Quem Somos
@@ -29,10 +45,6 @@ leonardo.iacovini@nubank.com.br
 Rafael Leal
 
 rafael.leal@nubank.com.br
-
----
-
-# Nubank
 
 ---
 
@@ -60,15 +72,26 @@ rafael.leal@nubank.com.br
 
 ---
 
-## Clojure é um _dialeto LISP_
-
-<Appear>
-<h3> Dialeto é uma variante linguística constituída por características fonológicas, sintáticas, semânticas e morfológicas próprias. </h3>
-</Appear>
+<div style={{textAlign: 'left', fontSize: 80}}>
+  JS
+  <SyntaxHighlighter language='javascript' style={darcula}>
+    {`function(arg1, arg2)`}
+  </SyntaxHighlighter>
+  Clojure
+  <SyntaxHighlighter language='clojure' style={darcula}>
+    {`(function arg1 arg2)`}
+  </SyntaxHighlighter>
+</div>
 
 ---
 
-<Image src="https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535" size="80%" />
+## Clojure é um _dialeto LISP_
+
+Dialeto é uma variante linguística constituída por características fonológicas, sintáticas, semânticas e morfológicas próprias.
+
+---
+
+<Image src="https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg?1315930535" size="70%" />
 
 ---
 
@@ -78,7 +101,7 @@ Clojure segue a mesma estrutura gramatical e sintática de um LISP, porém possu
 
 # Exemplo (Fatorial)
 
-<div style={{textAlign: 'left'}}>
+<div style={{textAlign: 'left', fontSize: 70}}>
   <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
     {require("!raw-loader!./snippets/fatorial.clj")}
   </SyntaxHighlighter>
@@ -88,19 +111,55 @@ Clojure segue a mesma estrutura gramatical e sintática de um LISP, porém possu
 
 # Programação Funcional
 
-_Paradigma_ de programação que procura tratar problemas computacionais como a avaliação de funções matemáticas
+_Paradigma_ de programação que procura tratar problemas computacionais como a avaliação de funções matemáticas, tem suas origens no cálculo Lambda
+
+- Clojure
+- Elixir
+- Scala
+- Haskell
+- F#
 
 ---
 
+- Funções puras
 - Imutabilidade
-- Programação declarativa
-- Idempotência
+- Idempotência (livre de _side-effects_)
+- Funções são valores (First Class Functions)
 - Transparência referencial
-- Funções são valores
+- Programação declarativa
 
 ---
 
-Tem suas origens em cálculo Lambda
+# Funcional?
+
+<div style={{textAlign: 'left', fontSize: 30}}>
+  <SyntaxHighlighter language='c' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/not-a-function.c")}
+  </SyntaxHighlighter>
+</div>
+<Appear>
+<span style={{fontSize: 80}}>
+  "Uma relação f:A→B é uma função quando para qualquer x ∈ A existe um único (x,y) ∈ f."
+</span>
+  </Appear>
+
+---
+
+# Funções Puras
+
+Os dados recebidos não são alterados. Um novo valor é criado e retornado
+
+São funções livre de efeitos colaterais
+
+Efeitos colaterais são ações que alteram o estado do mundo (Eg: enviar um email, fazer uma transação no DB, etc...)
+
+Funções puras são fáceis de entender, testar e seguras de executar! (idempotentes)
+
+---
+
+<span style={{fontSize: 80}}>
+  "Uma relação f:A→B é uma função quando para qualquer x ∈ A existe um único (x,y) ∈ f."
+</span>
 
 ---
 
@@ -110,13 +169,13 @@ Tem suas origens em cálculo Lambda
 
 Se `a = 1`, então `a` sempre será `1`
 
-Funções não alteram o valor de suas entradas, elas produzem uma sáida com as alterações feitas.
+- Funções não alteram o valor de suas entradas, elas produzem uma sáida com as alterações feitas.
 
 `f(a) -> b` onde `b != a` (outro _objeto_ - não é a mesma referência)
 
 ---
 
-## Vantagens
+# Vantagens
 
 - Programação concorrente/paralelismos (thread safety)
 - Fica mais fácil entender o que o código está fazendo
@@ -124,33 +183,201 @@ Funções não alteram o valor de suas entradas, elas produzem uma sáida com as
 
 ---
 
-## Performace
+# Performace
 
-Isso não deveria piorar a performace? (Listas por exemplo)
+Isso não deveria piorar a performace? (Listas por exemplo) Preciso ficar copiando
+as estruturas toda manipulação.
 
 ---
 
 # NÃO
 
-Clojure usa estruturas de dados otimizadas para operações imutáveis
-a maioria das operações é feita em O(1).
+Clojure usa estruturas de dados otimizadas para operações imutáveis, a maioria das operações é feita em O(1).
 
-Se utiliza de tecnicas de re-aproveitamento de memória (já que os dados não mudam)
+Se utiliza de tecnicas de re-aproveitamento de memória (já que os dados não mudam - copy-on-write)
+
+---
+
+Imutabilidade elimina grande parte dos problemas que ocasionam dead-locks. E simplifica nosso código
+
+<div style={{textAlign: 'left'}}>
+<SyntaxHighlighter language='java' style={darcula}>
+{`lock.lock();
+doSomething();
+lock.unlock();`}
+</SyntaxHighlighter>
+
+<SyntaxHighlighter language='java' style={darcula}>
+{`synchronized (Lock lock) {
+    doSomething()
+}`}
+</SyntaxHighlighter>
+</div>
+
+<span style={{fontSize: 100}}>🤔</span>
 
 ---
 
 export default Split
 
 <div style={{textAlign: 'left'}}>
-  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
-    {require("!raw-loader!./snippets/fatorial.clj")}
+  Mutável
+  <SyntaxHighlighter language='c' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/mutable-fat.c")}
   </SyntaxHighlighter>
 </div>
 
 <div style={{textAlign: 'left'}}>
+  Imutável
   <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
     {require("!raw-loader!./snippets/fatorial.clj")}
   </SyntaxHighlighter>
 </div>
 
 ---
+
+# Idempotência
+
+Em matemática e ciência da computação, a idempotência é a propriedade que algumas operações têm de poderem ser aplicadas várias vezes sem que o valor do resultado se altere após a aplicação inicial.
+
+`f(f(x)) = f(x)`
+
+---
+
+# Funções são Valores
+
+Funções são tratadas como demais tipos (inteiros, float, strings, etc...), e podem ser atribuidas a _variáveis_, passadas como argumentos
+ou retornadas por outras funções.
+
+---
+
+# High Order Functions
+
+São funções que recebem outras funções como argumento
+
+Ou, funções que retornam outras funções
+
+`f(g(x))  === f∘g`
+
+`f(g, a) -> b`
+
+`f(a, b) -> g`
+
+onde `f` e `g` são funções
+
+---
+
+<div style={{textAlign: 'left', fontSize: 50}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/map.clj")}
+  </SyntaxHighlighter>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/even.clj")}
+  </SyntaxHighlighter>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/comp.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+# HoF Comuns
+
+<div style={{textAlign: 'left', fontSize: 60}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/common-hofs.clj")}
+  </SyntaxHighlighter>
+</div>
+
+Operações em sequências!
+
+---
+
+# Referência Transparencial
+
+O resultado de uma função depende apenas dos argumentos que ela recebe
+
+Característica de funções puras
+
+---
+
+# Clojure
+
+<img width="50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Clojure_logo.svg/1200px-Clojure_logo.svg.png" />
+
+https://clojure.org/
+
+---
+
+- Roda na JVM, tem interop com outras linguagens que também rodam nela (Java, Scala, Groovy, etc...)
+- Dinâmica
+- _REPL Driven Development_
+- Simples e intuitiva!
+
+---
+
+# Tipos
+
+<div style={{textAlign: 'left', fontSize: 50}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/types.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+> "It is better to have 100 functions operate on one data structure than to have 10 functions operate on 10 data structures." - Alan Perlis
+
+---
+
+# Mapas
+
+Mapas `{}` são usados muito em Clojure para carregar valores juntos (o que geralmente seria um objeto), mas ele contém apenas os valores imutáveis
+e não operações que alteram seu estado.
+
+---
+
+# Blocos
+
+<div style={{textAlign: 'left', fontSize: 50}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/blocks.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+# Code is Data
+
+O código Clojure em sí é uma sequência de símbolos em uma `list`
+
+---
+
+# Macros
+
+São _funções_ que operam sobre a estrutura do código para modifica-lo antes da compilação ou execução
+
+Exemplo: Thread Last Macro `->>`
+<div style={{textAlign: 'left', fontSize: 50}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/macros.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+# DEMO
+
+---
+
+<div style={{textAlign: 'left', fontSize: 20}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/billing.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+## Inscrições para Engenharia de Software
+
+<img src="./img/qr.png" width="30%"/>
