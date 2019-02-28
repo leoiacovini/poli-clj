@@ -251,9 +251,19 @@ Em matemática e ciência da computação, a idempotência é a propriedade que 
 
 ---
 
-In imperative programming, a subroutine with side effects is idempotent if the system state remains the same after one or several calls, in other words if the function from the system state space to 
-itself associated to the subroutine is idempotent in the mathematical sense given in the definition;
+# Mas e daí?
 
+Quando tivermos que lidar com estado externo, ainda podemos pensar em funções ao invés de subrotinas!
+
+Ao invés de pensarmos em:
+`f(x) -> void`
+
+pensamos:
+`f(x, world) -> new-world`
+
+<Appear>
+Em caso de falha, podemos tentar novamente sem medo de dupla execução!
+</Appear>
 ---
 
 # Funções são Valores
@@ -452,7 +462,7 @@ Elas deixam seu código mais limpo, funcional e fácil de entender. Recursão de
 
 # Sets
 
-`sets #{1 2 3}` são coleções como seqências, só que sem uma ordem definida, e não podem ter elementos repetidos.
+`sets #{1 2 3}` são coleções como sequências, só que sem uma ordem definida, e não podem ter elementos repetidos.
 
 `sets` também são funções! Usando um `set`, podemos saber se um elemento está contido nele: 
 
