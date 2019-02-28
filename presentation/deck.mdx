@@ -338,6 +338,30 @@ https://clojure.org/
 
 ---
 
+# Números
+
+`BigDecimal` e `BigInteger` são nativos do Clojure, você pode fazer operações com extrema alta precisão usando todos métodos e operadores
+nativos. (muito útil para uma instituição financeira)
+
+`Ratio` é um tipo de Clojure que permite expressar frações e proporções com precisão infinita, como por exemplo `1/3`
+
+---
+
+# Funções
+
+Funções em clojure podem ser criadas usando `fn`:
+
+<div style={{textAlign: 'left', fontSize: 50}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {`(fn [arg] body)
+(def my-fn (fn [arg] body))
+(defn my-fn [arg] body)
+#(inc %) ;; => (fn [a] (inc a))`}
+  </SyntaxHighlighter>
+</div>
+
+---
+
 # Mapas
 
 Mapas `{}` são usados muito em Clojure para carregar valores juntos (o que geralmente seria um objeto), mas ele contém apenas os valores imutáveis
@@ -376,6 +400,61 @@ Ambas são bem semelhantes e funcionam de forma da mesma maneira em diferentes f
     {require("!raw-loader!./snippets/blocks.clj")}
   </SyntaxHighlighter>
 </div>
+
+---
+
+# Recursão
+
+Recursão é uma ferramenta importante em programação funcional, pois permite que executemos "loops" sem alterar o valor das variáveis
+
+<div style={{textAlign: 'left', fontSize: 50}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/recur.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+# Loop
+
+Permite realizar loops dentro de funções, como se tivessemos uma recursão localizada.
+
+<div style={{textAlign: 'left', fontSize: 50}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/loops.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+# Dica!
+
+Prefira sempre utilizar sempre que possível funções como `map`, `filter`, `reduce`, etc... E composições delas, ao invés de recursão e `loop`.
+
+Elas deixam seu código mais limpo, funcional e fácil de entender. Recursão deve ser utilizada quando ela for realmente a melhor opção (ou única)
+
+---
+
+# Keywords
+
+`keywords` são um tipo muito usado em Clojure, geralmente são usadas como chaves de mapas, ou identificadores (como valores de um Enum)
+
+`keywords` podem (e muitas vezes são) usadas com namespaces, como por exemplo: `:person/name`. Isso ajuda a *qualificar* a `keywords`
+
+`keywords` também são funções! Você pode acessar valores de um mapa usando elas: `(:name {:name "John"})` => `"John"`
+
+---
+
+# Sets
+
+`sets #{1 2 3}` são coleções como seqências, só que sem uma ordem definida, e não podem ter elementos repetidos.
+
+`sets` também são funções! Usando um `set`, podemos saber se um elemento está contido nele: 
+
+`(#{1 2 3} 1)` => `1`
+
+`(#{1 2 3} 5)` => `nil`
+
 
 ---
 

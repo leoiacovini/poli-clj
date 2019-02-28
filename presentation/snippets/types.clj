@@ -10,3 +10,5 @@ true        ;; boolean
 [1 2 3]     ;; Vector
 {:a "ola"}  ;; Maps
 #{1 2 3}    ;; Sets
+(fn [])     ;; Funções
+nil         ;; nil

@@ -6,7 +6,9 @@ export default {
     ...theme.colors, // include existing theme colors
     text: 'white',
     background: 'rgb(130, 38, 158)',
-    code: 'pink'
+    code: 'pink',
+    codeBackground: 'rgb(130, 38, 158, 0)',
+    preBackground:'rgb(130, 38, 158, 0)'
   }
   // Customize your presentation theme here.
   //
