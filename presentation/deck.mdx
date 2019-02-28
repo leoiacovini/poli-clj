@@ -17,6 +17,22 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 
 export default Split
 
+# Quem Somos
+
+Leonardo Iacovini
+
+leonardo.iacovini@nubank.com.br
+
+<br />
+
+Rafael Leal
+
+rafael.leal@nubank.com.br
+
+---
+
+export default Split
+
 # Nubank
 
 - Cartão de Crédito (2014)
@@ -32,19 +48,15 @@ export default Split
 
 ---
 
-export default Split
+# Tecnologias
 
-# Quem Somos
-
-Leonardo Iacovini
-
-leonardo.iacovini@nubank.com.br
-
-<br />
-
-Rafael Leal
-
-rafael.leal@nubank.com.br
+- Microserviços
+- Clojure
+- Kafka
+- Datomic
+- Kubernetes
+- AWS
+- ...
 
 ---
 
@@ -157,12 +169,6 @@ Funções puras são fáceis de entender, testar e seguras de executar! (idempot
 
 ---
 
-<span style={{fontSize: 80}}>
-  "Uma relação f:A→B é uma função quando para qualquer x ∈ A existe um único (x,y) ∈ f."
-</span>
-
----
-
 # Imutabilidade
 
 - _Variáveis_ não tem seu valor alterado
@@ -185,8 +191,9 @@ Se `a = 1`, então `a` sempre será `1`
 
 # Performace
 
-Isso não deveria piorar a performace? (Listas por exemplo) Preciso ficar copiando
-as estruturas toda manipulação.
+Isso não deveria piorar a performace? (Listas por exemplo)
+
+Preciso ficar copiando as estruturas toda manipulação ?
 
 ---
 
@@ -198,7 +205,7 @@ Se utiliza de tecnicas de re-aproveitamento de memória (já que os dados não m
 
 ---
 
-Imutabilidade elimina grande parte dos problemas que ocasionam dead-locks. E simplifica nosso código
+Imutabilidade elimina grande parte dos problemas que ocasionam dead-locks e problemas de concorrência, simplificando nosso código
 
 <div style={{textAlign: 'left'}}>
 <SyntaxHighlighter language='java' style={darcula}>
@@ -312,6 +319,7 @@ https://clojure.org/
 - Roda na JVM, tem interop com outras linguagens que também rodam nela (Java, Scala, Groovy, etc...)
 - Dinâmica
 - _REPL Driven Development_
+- Criada por Rich Hickey
 - Simples e intuitiva!
 
 ---
@@ -334,6 +342,30 @@ https://clojure.org/
 
 Mapas `{}` são usados muito em Clojure para carregar valores juntos (o que geralmente seria um objeto), mas ele contém apenas os valores imutáveis
 e não operações que alteram seu estado.
+
+Geralmente `keywords` são usadas como chaves para os mapas
+
+<div style={{textAlign: 'left', fontSize: 50}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {`{:name           "John"
+ :account-number 3456
+ :branch         1}`}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+# Sequences
+
+Clojure conta com 2 tipos para sequências: `List '()` e `Vector []`
+
+Ambas são bem semelhantes e funcionam de forma da mesma maneira em diferentes funções e cenários, porém existem algumas diferenças de comportamentos, como por exemplo:
+
+`Lists` tem elementos adicionados no seu inícios, `Vectors` tem elementos adicionados no final, quando usando a função `conj`
+
+---
+
+## Sequências são elementos fudamentais em programação funcional, e em Clojure. Processar e transformar sequências de dados é parte central de muitos programas
 
 ---
 
