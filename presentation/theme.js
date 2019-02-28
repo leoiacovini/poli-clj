@@ -5,6 +5,7 @@ export default {
   colors: {
     ...theme.colors, // include existing theme colors
     text: 'white',
+    link: 'white',
     background: 'rgb(130, 38, 158)',
     code: 'pink',
     codeBackground: 'rgb(130, 38, 158, 0)',

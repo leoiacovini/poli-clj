@@ -251,6 +251,11 @@ Em matemática e ciência da computação, a idempotência é a propriedade que 
 
 ---
 
+In imperative programming, a subroutine with side effects is idempotent if the system state remains the same after one or several calls, in other words if the function from the system state space to 
+itself associated to the subroutine is idempotent in the mathematical sense given in the definition;
+
+---
+
 # Funções são Valores
 
 Funções são tratadas como demais tipos (inteiros, float, strings, etc...), e podem ser atribuidas a _variáveis_, passadas como argumentos
@@ -489,6 +494,50 @@ Exemplo: Thread Last Macro `->>`
 
 ---
 
-## Inscrições para Engenharia de Software
+# Interop Java
+
+Clojure consegue realizar interop com Java, e com isso ganhamos todo acervo que a JVM nos fornece.
+
+<div style={{textAlign: 'left', fontSize: 30}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/interop.clj")}
+  </SyntaxHighlighter>
+</div>
+
+(não abuse do interop - use somente quando necessário - Clojure fornece uma biblioteca repleta de recursos)
+
+---
+
+# Concorrência e Paralelismo
+
+Clojure é feito pensando em concorrência, ele nos provê nativamente várias funções para ajudar com isso!
+
+- `pmap` -> Como o `map` só que paraleliza automaticamente o processamento
+- `future`
+- `promise`
+
+---
+
+# Mas... E quando precisamos de estado?
+
+---
+
+# Estado Mutável
+
+Quando precisamos trabalhar com estado mutável, Clojure possui estruturas de dados próprias para isso, como por exemplo o `atom`
+
+<div style={{textAlign: 'left', fontSize: 30}}>
+  <SyntaxHighlighter language='clojure' style={darcula} wrapLines={false}>
+    {require("!raw-loader!./snippets/atom.clj")}
+  </SyntaxHighlighter>
+</div>
+
+---
+
+# Estamos Contratando!
+
+---
 
 <img src="./img/qr.png" width="30%"/>
+
+http://bit.ly/2C4B6cD
